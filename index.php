@@ -8,7 +8,7 @@
     <title>Formation Laravel | Solidarity</title>
   </head>
   <body>
-    <div class="leaderboard">
+    <div class='leaderboard'>
       <header>
         <h1 class="leaderboard__title">
           <span class="leaderboard__title--top">Chapitre</span>
@@ -17,26 +17,19 @@
       </header>
 
       <main class="leaderboard__profiles">
-        <article class="leaderboard__profile">
-          <span
-            class="leaderboard__picture"
-          >
-          1
-          </span>
-          <span class="leaderboard__name">Mark Zuckerberg</span>
-        </article>
+      <?php
+      $d = dir(".");
+      $day = 1;
+        while (false !== ($entry = $d->read()))
+        {
+            if (is_dir($entry) && ($entry != '.') && ($entry != '..'))
+                echo "<a href='{$entry}'><article class='leaderboard__profile'><span class='leaderboard__picture'> {$day} </span> <span class='leaderboard__name'>{$entry}</span>  </article></a>";
+                $day++;
+        }
+        $d->close();
+        ?>
+        
       </main>
     </div>
   </body>
 </html>
-
-<?php
-
-$scan = scandir('myFolder');
-foreach($scan as $file) {
-   if (!is_dir("myFolder/$file")) {
-      echo $file.'\n';
-   }
-}
-
-?>
