@@ -18,15 +18,25 @@
 
       <main class="leaderboard__profiles">
         <article class="leaderboard__profile">
-          <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
-            alt="Mark Zuckerberg"
+          <span
             class="leaderboard__picture"
-          />
+          >
+          1
+          </span>
           <span class="leaderboard__name">Mark Zuckerberg</span>
-          <span class="leaderboard__value">35.7<span>B</span></span>
         </article>
       </main>
     </div>
   </body>
 </html>
+
+<?php
+
+$scan = scandir('myFolder');
+foreach($scan as $file) {
+   if (!is_dir("myFolder/$file")) {
+      echo $file.'\n';
+   }
+}
+
+?>
